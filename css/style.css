@@ -1,0 +1,69 @@
+@import url("archivo.css");
+
+html {
+  box-sizing: border-box;
+}
+
+* {
+  box-sizing: inherit;
+}
+
+h1,
+h2 {
+  font-family: Archivo-Bold;
+  text-transform: uppercase;
+}
+
+h1 {
+  font-size: 2rem;
+  /* text-align: center; */
+}
+
+h2 {
+  text-transform: unset;
+}
+
+img {
+  width: 100%;
+  object-fit: cover;
+  aspect-ratio: 1 / 1;
+  object-position: 50% 50%;
+  border-radius: 10px;
+  filter: grayscale(100%);
+}
+
+ul {
+  padding: 0;
+  list-style: inside "-->";
+}
+
+body {
+  font-family: Archivo-Regular;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 80%;
+  max-width: 920px;
+}
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  /* justify-content: space-between; */
+}
+
+.intro p {
+  /* width: 50%; */
+  font-size: 1rem;
+  max-width: 46ch;
+  margin: 0;
+  /* border: 1px solid black; */
+  /* padding: 2em; */
+
+  /* border-radius: 10px; */
+}
+
+.self-portrait {
+  max-width: 325px;
+}
