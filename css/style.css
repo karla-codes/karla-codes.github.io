@@ -1,4 +1,24 @@
-@import url("archivo.css");
+/* @import url("archivo.css"); */
+
+@font-face {
+  font-family: "Archivo-Regular";
+  src: url("../fonts/Archivo-Regular.woff2") format("woff2"),
+    url("../fonts/Archivo-Regular.woff") format("woff"),
+    url("../fonts/Archivo-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Archivo-Bold";
+  src: url("../fonts/Archivo-Bold.woff2") format("woff2"),
+    url("../fonts/Archivo-Bold.woff") format("woff"),
+    url("../fonts/Archivo-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-display: swap;
+  font-style: normal;
+}
 
 html {
   box-sizing: border-box;
