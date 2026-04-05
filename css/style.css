@@ -104,6 +104,10 @@ nav {
 }
 
 .list ul {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 5px 10px;
   list-style: none;
   padding: 0;
 }
@@ -113,7 +117,7 @@ nav {
   border: 1px solid greenyellow;
   padding: 10px;
   border-radius: 10px;
-  width: 48ch;
+  width: fit-content;
 }
 
 .list ul li:hover {
