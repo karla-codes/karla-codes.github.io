@@ -65,7 +65,6 @@ header h1 {
 
 nav {
   width: 90%;
-  margin-block-end: 20px;
   position: absolute;
   height: 90%;
 
@@ -106,7 +105,7 @@ nav {
 
 header p {
   text-align: center;
-  width: min(68ch, 80%);
+  width: min(68ch, 90%);
   align-self: center;
   font-size: 1rem;
   line-height: 1.4;
