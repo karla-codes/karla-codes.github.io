@@ -2,7 +2,7 @@
   --lt-bg-color: #f0d5f8;
   --lt-heading-color: #0c4fd6;
   --lt-text-color: hsl(286, 90%, 19%);
-  --lt-accent-color: #d5f8db;
+  --lt-accent-color: #6296ff;
 }
 
 /******************************************************* SIMPLE RESET
@@ -22,6 +22,10 @@ body {
   color: var(--lt-text-color);
 }
 
+path {
+  stroke: var(--lt-accent-color);
+}
+
 .wrapper {
   display: flex;
   flex-direction: column;
@@ -31,6 +35,10 @@ body {
   margin: 0 auto;
 }
 
+.intro {
+  height: 90vh;
+}
+
 header {
   display: flex;
   flex-direction: column;
@@ -38,34 +46,37 @@ header {
   height: 100%;
 }
 
-.intro {
-  display: flex;
-  flex-direction: column;
-  height: 90%;
-}
-
 header h1 {
   text-align: center;
   font-size: clamp(1.5rem, 0.2826rem + 6.087vw, 5rem);
   color: var(--lt-heading-color);
   text-transform: uppercase;
-  margin-block-start: min(25%, 150px);
+  margin-block-start: min(25%, 115px);
 }
 
 #scientific-name {
   font-size: clamp(3.25rem, 0.9022rem + 11.7391vw, 10rem);
+  font-style: italic;
   line-height: 1;
 }
 
 #moth-name {
   font-size: clamp(1rem, 0.6522rem + 1.7391vw, 2rem);
-  font-style: italic;
   text-transform: capitalize;
 }
 
+header p {
+  text-align: justify;
+  width: min(68ch, 75%);
+  align-self: center;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
 nav {
-  width: 90%;
+  width: 100%;
   position: absolute;
+  top: 50px;
   height: 90%;
 
   ul {
@@ -103,25 +114,39 @@ nav {
   }
 }
 
-header p {
+.svg-box {
   text-align: center;
-  width: min(68ch, 90%);
-  align-self: center;
-  font-size: 1rem;
-  line-height: 1.4;
+
+  svg {
+    width: 100%;
+  }
 }
 
-.about {
-  width: min(80ch, 100%);
-  align-self: center;
+.stage-1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 4em;
+  height: 90vh;
 }
 
-.about h2 {
-  color: var(--lt-heading-color);
-  font-size: 4rem;
+.stage-intro {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  gap: 4em;
+  width: 100%;
 }
 
-.about p {
-  font-size: 1.25rem;
-  line-height: 1.4;
+.stage-text {
+  width: 52ch;
+
+  h2 {
+    margin-block-end: 10px;
+  }
+}
+
+.stage-interaction {
+  height: 100%;
 }
