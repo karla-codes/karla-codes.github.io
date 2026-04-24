@@ -22,7 +22,12 @@ body {
   color: var(--lt-text-color);
 }
 
-path {
+#pattern-1,
+#pattern-2,
+#pattern-3,
+#pattern-4,
+#pattern-5,
+#pattern-6 {
   stroke: var(--lt-accent-color);
 }
 
@@ -122,25 +127,29 @@ nav {
   }
 }
 
-.stage-1 {
+.stage-1,
+.stage-2,
+.stage-3 {
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 4em;
+  /* flex-direction: column; */
+  /* justify-content: space-between; */
+  gap: 2em;
   height: 90vh;
 }
 
 .stage-intro {
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
-  justify-content: space-between;
+  /* justify-content: space-between; */
 
   gap: 4em;
-  width: 100%;
+  width: 24%;
+  /* flex: 1; */
 }
 
 .stage-text {
-  width: 52ch;
+  /* width: 64ch; */
 
   h2 {
     margin-block-end: 10px;
@@ -149,4 +158,17 @@ nav {
 
 .stage-interaction {
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+
+  svg {
+    /* max-height: 100%; */
+    height: 100vh;
+    min-width: 400px;
+    width: 90%;
+    margin: 0 auto;
+    overflow: visible;
+  }
 }
