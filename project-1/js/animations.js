@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
   const smoother = ScrollSmoother.create({
     wrapper: "#smooth-wrapper",
     content: "#smooth-content",
-    smooth: 4,
+    smooth: 3,
   });
 
   // Pattern 1 Animation
@@ -14,81 +14,39 @@ document.addEventListener("DOMContentLoaded", (event) => {
     scrollTrigger: {
       trigger: "#pattern-1, #pattern-2",
       scrub: true,
-      start: "clamp(top bottom-=300px)",
-      end: "clamp(bottom top)",
+      start: "clamp(top 50%)",
+      end: "clamp(bottom 20%)",
     },
   });
 
   tlPattern.from("#pattern-1, #pattern-2", {
-    duration: 3,
     drawSVG: 0,
   });
 
   // Egg Scroll Animations
   function eggsScroll() {
-    const tlEggs = gsap
-      .timeline({
-        scrollTrigger: {
-          trigger: "ellipse",
-          scrub: true,
-          start: "clamp(top center)",
-          end: "clamp(bottom center-=120)",
-        },
-      })
-      .set("ellipse", {
-        opacity: 0,
-      });
+    const tlEggs = gsap.timeline({
+      scrollTrigger: {
+        trigger: "#stage1-svg",
+        scrub: true,
+        start: "clamp(top 60%)",
+        end: "clamp(bottom 100%)",
+      },
+    });
 
-    tlEggs
-      .to("section", {
-        scrollTrigger: {
-          trigger: "section.stage-1",
-          scrub: true,
-          start: "clamp(top center-=300)",
-          end: "clamp(bottom center-=120)",
-        },
-        "--lt-bg-color": "#32CD32",
-        "--lt-text-color": "#292905",
-      })
-      .to("ellipse", {
-        duration: 2,
-        opacity: 1,
-        ease: "power1.out",
+    tlEggs.from("ellipse", {
+      duration: 2,
+      opacity: 0,
+      y: 20,
+      ease: "power1.out",
+      stagger: {
+        each: 0.5,
         yoyo: true,
-        stagger: 1.5,
-      });
+      },
+    });
 
     return tlEggs;
   }
-
-  //   function eggsBounce() {
-  //   const tlEggsBounce = gsap.timeline();
-  //
-  //   tlEggsBounce
-  //     .to(
-  //       "#egg, #egg1, #egg2, #egg3, #egg7, #egg8, #egg9, #egg10, #egg14, #egg15, #egg16, #egg17, #egg21, #egg22, #egg23, #egg24",
-  //       {
-  //         duration: 1,
-  //         repeat: 4,
-  //         y: -20,
-  //         ease: "power1.out",
-  //         yoyo: true,
-  //       }
-  //     )
-  //     .to(
-  //       "#egg4, #egg5, #egg6, #egg11, #egg12, #egg13, #egg18, #egg19, #egg20, #egg25, #egg26, #egg27",
-  //       {
-  //         duration: 1,
-  //         repeat: 4,
-  //         y: -20,
-  //         ease: "power1.out",
-  //         yoyo: true,
-  //       },
-  //       "<-.3"
-  //     );
-  //
-  //   return tlEggsBounce;
-  // }
 
   const eggAnimations = gsap.timeline();
 
@@ -110,27 +68,21 @@ document.addEventListener("DOMContentLoaded", (event) => {
   });
 
   // Larva Animations
+  const larvaScroll = gsap.timeline({
+    scrollTrigger: {
+      trigger: "#stage2-svg",
+      scrub: true,
+      start: "clamp(top 80%)",
+      end: "clamp(bottom 95%)",
+    },
+  });
 
-  const larvaScroll = gsap
-    .timeline({
-      scrollTrigger: {
-        trigger: "#worm5",
-        scrub: true,
-        start: "clamp(top bottom)",
-        end: "clamp(bottom bottom-=100)",
-      },
-    })
-    .set("#worm1, #worm2, #worm3, #worm4, #worm5", {
-      y: "100%",
-      opacity: 0,
-    });
-
-  larvaScroll.to("#worm1, #worm2, #worm3, #worm4, #worm5", {
+  larvaScroll.from("#worm1, #worm2, #worm3, #worm4, #worm5", {
     duration: 4,
     ease: "power1.out",
-    y: 0,
-    opacity: 1,
-    stagger: 0.5,
+    y: "100%",
+    opacity: 0,
+    stagger: 1,
     yoyo: true,
   });
 
@@ -139,7 +91,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     scrollTrigger: {
       trigger: "#pattern-5, #pattern-6",
       scrub: true,
-      start: "clamp(top bottom-=300px)",
+      start: "clamp(top bottom-=500px)",
       end: "clamp(bottom top)",
     },
   });
@@ -148,4 +100,26 @@ document.addEventListener("DOMContentLoaded", (event) => {
     duration: 3,
     drawSVG: 0,
   });
+
+  // Pupa Animations
+  let pupaScroll = gsap.timeline({
+    scrollTrigger: {
+      trigger: "#stage3-svg",
+      scrub: true,
+      start: "clamp(top 60%)",
+      end: "clamp(bottom bottom)",
+    },
+  });
+
+  pupaScroll
+    .from("#pupa, #pupa-pattern-1, #pupa-pattern-2", {
+      duration: 3,
+      opacity: 0,
+      ease: "power1.out",
+    })
+    .from("#pupa-pattern-1, #pupa-pattern-2", {
+      duration: 4,
+      drawSVG: 0,
+      yoyo: true,
+    });
 });
