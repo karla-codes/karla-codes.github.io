@@ -1,11 +1,15 @@
 :root {
   --lt-bg-color: #f0d5f8;
-  --lt-heading-color: #0c4fd6;
-  --lt-text-color: hsl(286, 90%, 19%);
-  --lt-accent-color: #f409dc;
+  --lt-heading-color: #f409dc;
+  /* --lt-heading-color: #0c4fd6; */
+  /* --lt-text-color: #0c4fd6; */
+  --lt-text-color: #f409dc;
+  --lt-accent-color: #5c92ff;
+  /* --lt-accent-color: color(display-p3 0.776 0.542 0.888); */
 }
 
-/******************************************************* SIMPLE RESET
+/******************************************************* 
+SIMPLE RESET
 *****************************************************/
 * {
   margin: 0;
@@ -13,13 +17,21 @@
   box-sizing: border-box;
 }
 
-/******************************************************* MAIN STYLES
+/******************************************************* 
+MAIN STYLES
 *****************************************************/
 
 body {
-  font-family: sans-serif;
+  font-family: "Lilex", monospace;
   background: var(--lt-bg-color);
   color: var(--lt-text-color);
+}
+
+h1,
+h2 {
+  font-family: "Silkscreen", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 #pattern-1,
@@ -27,7 +39,9 @@ body {
 #pattern-3,
 #pattern-4,
 #pattern-5,
-#pattern-6 {
+#pattern-6,
+#pattern-7,
+#pattern-8 {
   stroke: var(--lt-accent-color);
 }
 

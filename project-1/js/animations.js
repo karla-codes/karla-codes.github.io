@@ -91,7 +91,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     scrollTrigger: {
       trigger: "#pattern-5, #pattern-6",
       scrub: true,
-      start: "clamp(top bottom-=500px)",
+      start: "clamp(top bottom-=500)",
       end: "clamp(bottom top)",
     },
   });
@@ -102,7 +102,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
   });
 
   // Pupa Animations
-  let pupaScroll = gsap.timeline({
+  const pupaScroll = gsap.timeline({
     scrollTrigger: {
       trigger: "#stage3-svg",
       scrub: true,
@@ -122,4 +122,84 @@ document.addEventListener("DOMContentLoaded", (event) => {
       drawSVG: 0,
       yoyo: true,
     });
+
+  // Pattern 4 Animation
+  const tlPattern4 = gsap.timeline({
+    scrollTrigger: {
+      trigger: "#pattern-7, #pattern-8",
+      scrub: true,
+      start: "clamp(top bottom-=500)",
+      end: "clamp(bottom top)",
+    },
+  });
+
+  tlPattern4.from("#pattern-7, #pattern-8", {
+    duration: 3,
+    drawSVG: 0,
+  });
+
+  // Moth Animations
+  const mothScroll = gsap.timeline({
+    scrollTrigger: {
+      trigger: "#stage4-svg",
+      scrub: true,
+      start: "clamp(top 60%)",
+      end: "clamp(bottom bottom)",
+    },
+    onComplete: () => {
+      gsap.delayedCall(0.5, () => {
+        const mothWingtl = gsap.timeline({ ease: "power1.in" });
+
+        mothWingtl
+          .to("#left-wing", {
+            repeat: 1,
+            duration: 1.5,
+            rotation: 15,
+            transformOrigin: "100% 0",
+            yoyo: true,
+          })
+          .to(
+            "#right-wing",
+            {
+              repeat: 1,
+              duration: 1.5,
+              rotation: -15,
+              transformOrigin: "0 0",
+              yoyo: true,
+            },
+            "<.2"
+          );
+      });
+    },
+  });
+
+  mothScroll.from("#moth", {
+    opacity: 0,
+    y: "100%",
+    ease: "power1.out",
+  });
+  // .to("#left-wing", {
+  //   duration: 1,
+  //   rotation: 15,
+  //   transformOrigin: "100% 0",
+  // })
+  // .to("#left-wing", {
+  //   duration: 1,
+  //   rotation: 0,
+  //   transformOrigin: "100% 0",
+  // });
+  // .to(
+  //   "#right-wing",
+  //   {
+  //     duration: 1,
+  //     rotation: -15,
+  //     transformOrigin: "0 0",
+  //   },
+  //   "<0.2"
+  // )
+  // .to("#right-wing", {
+  //   duration: 1,
+  //   rotation: 0,
+  //   transformOrigin: "0 0",
+  // });
 });
