@@ -2,6 +2,28 @@ document.addEventListener("DOMContentLoaded", (event) => {
   // register all plugins
   gsap.registerPlugin(DrawSVGPlugin, ScrollTrigger, ScrollSmoother);
 
+  const sections = gsap.utils.toArray("section");
+
+  // Observe Scroll events
+  ScrollTrigger.observe({
+    target: window,
+    type: "pointer",
+    onClick: (self) => {
+      let eggName = self.event.target.localName;
+      let egg = self.event.target;
+
+      if (eggName == "ellipse") {
+        gsap.to(egg, {
+          duration: 1,
+          fill: "#D3AFCD",
+        });
+      } else {
+        return;
+      }
+      console.log(self.event.target.localName);
+    },
+  });
+
   // Smooth Scroll
   const smoother = ScrollSmoother.create({
     wrapper: "#smooth-wrapper",
@@ -32,6 +54,24 @@ document.addEventListener("DOMContentLoaded", (event) => {
         start: "clamp(top 60%)",
         end: "clamp(bottom 100%)",
       },
+      //       onComplete: () => {
+      //         gsap.delayedCall(0.5, () => {
+      //           const eggAnimation = gsap.timeline();
+      //
+      //           eggAnimation.to("ellipse", {
+      //             duration: 0.5,
+      //             ease: "power1.in",
+      //             stroke: "#FF7BEB",
+      //             fill: "#F9D8F4",
+      //             stagger: 0.2,
+      //             yoyo: true,
+      //             // stagger: {
+      //             //   each: 0.2,
+      //             //   yoyo: true,
+      //             // },
+      //           });
+      //         });
+      //       },
     });
 
     tlEggs.from("ellipse", {
@@ -178,28 +218,4 @@ document.addEventListener("DOMContentLoaded", (event) => {
     y: "100%",
     ease: "power1.out",
   });
-  // .to("#left-wing", {
-  //   duration: 1,
-  //   rotation: 15,
-  //   transformOrigin: "100% 0",
-  // })
-  // .to("#left-wing", {
-  //   duration: 1,
-  //   rotation: 0,
-  //   transformOrigin: "100% 0",
-  // });
-  // .to(
-  //   "#right-wing",
-  //   {
-  //     duration: 1,
-  //     rotation: -15,
-  //     transformOrigin: "0 0",
-  //   },
-  //   "<0.2"
-  // )
-  // .to("#right-wing", {
-  //   duration: 1,
-  //   rotation: 0,
-  //   transformOrigin: "0 0",
-  // });
 });
