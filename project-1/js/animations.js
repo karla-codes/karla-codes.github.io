@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
   const smoother = ScrollSmoother.create({
     wrapper: "#smooth-wrapper",
     content: "#smooth-content",
-    smooth: 3,
+    smooth: 4,
   });
 
   // Pattern 1 Animation
@@ -54,24 +54,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
         start: "clamp(top 60%)",
         end: "clamp(bottom 100%)",
       },
-      //       onComplete: () => {
-      //         gsap.delayedCall(0.5, () => {
-      //           const eggAnimation = gsap.timeline();
-      //
-      //           eggAnimation.to("ellipse", {
-      //             duration: 0.5,
-      //             ease: "power1.in",
-      //             stroke: "#FF7BEB",
-      //             fill: "#F9D8F4",
-      //             stagger: 0.2,
-      //             yoyo: true,
-      //             // stagger: {
-      //             //   each: 0.2,
-      //             //   yoyo: true,
-      //             // },
-      //           });
-      //         });
-      //       },
     });
 
     tlEggs.from("ellipse", {
