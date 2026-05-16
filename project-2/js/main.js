@@ -1,5 +1,6 @@
 import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
+import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 
 // Canvas
 const canvas = document.querySelector("#c");
@@ -26,6 +27,19 @@ window.addEventListener("resize", () => {
   // update renderer
   renderer.setSize(window.innerWidth, window.innerHeight);
 });
+
+// Load Model
+const loader = new GLTFLoader();
+loader.load(
+  "/assets/Fox.gltf",
+  (gltf) => {
+    console.log(gltf);
+  },
+  undefined,
+  (error) => {
+    console.log(error);
+  }
+);
 
 // Materials
 const material = new THREE.MeshBasicMaterial({
