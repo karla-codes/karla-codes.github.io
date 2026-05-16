@@ -31,7 +31,7 @@ window.addEventListener("resize", () => {
 // Load Model
 const loader = new GLTFLoader();
 loader.load(
-  "/assets/Fox.gltf",
+  "assets/Fox.gltf",
   (gltf) => {
     console.log(gltf);
   },
