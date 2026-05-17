@@ -16,9 +16,29 @@ const camera = new THREE.PerspectiveCamera(
 camera.position.z = 3;
 scene.add(camera);
 
-// Orbit Controls
-const controls = new OrbitControls(camera, canvas);
-controls.enableDamping = true;
+// Load Model
+const loader = new GLTFLoader();
+// console.log(loader);
+loader.load(
+  // leave out asset folder from path bc public directory is set to "../assets/" folder
+  "/Duck/glTF/Duck.gltf",
+  (gltf) => {
+    scene.add(gltf.scene.children[0]);
+    console.log(gltf.scene.children[0]);
+  },
+  () => {
+    console.log("progress");
+  },
+  () => {
+    console.log("error");
+  }
+);
+
+/**
+ * Lights
+ **/
+const ambientLight = new THREE.AmbientLight(0xffffff, 1.8);
+scene.add(ambientLight);
 
 window.addEventListener("resize", () => {
   camera.aspect = window.innerWidth / window.innerHeight;
@@ -28,18 +48,9 @@ window.addEventListener("resize", () => {
   renderer.setSize(window.innerWidth, window.innerHeight);
 });
 
-// Load Model
-const loader = new GLTFLoader();
-loader.load(
-  "assets/Fox.gltf",
-  (gltf) => {
-    console.log(gltf);
-  },
-  undefined,
-  (error) => {
-    console.log(error);
-  }
-);
+// Orbit Controls
+const controls = new OrbitControls(camera, canvas);
+controls.enableDamping = true;
 
 // Materials
 const material = new THREE.MeshBasicMaterial({
@@ -48,8 +59,8 @@ const material = new THREE.MeshBasicMaterial({
 });
 
 // Objects (Mesh)
-const sphere = new THREE.Mesh(new THREE.SphereGeometry(), material);
-scene.add(sphere);
+// const sphere = new THREE.Mesh(new THREE.SphereGeometry(), material);
+// scene.add(sphere);
 
 // Renderer
 const renderer = new THREE.WebGLRenderer({ canvas });
